@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.javaacademy.party.dto.GuestDto;
-import org.javaacademy.party.entiry.Guest;
+import org.javaacademy.party.entity.Guest;
 import org.javaacademy.party.exception.NoAccessException;
 import org.springframework.stereotype.Repository;
 

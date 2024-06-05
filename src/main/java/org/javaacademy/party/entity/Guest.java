@@ -1,4 +1,4 @@
-package org.javaacademy.party.entiry;
+package org.javaacademy.party.entity;
 
 import lombok.Data;
 

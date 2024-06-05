@@ -2,7 +2,7 @@ package org.javaacademy.party.mapper;
 
 import java.util.List;
 import org.javaacademy.party.dto.GuestDto;
-import org.javaacademy.party.entiry.Guest;
+import org.javaacademy.party.entity.Guest;
 import org.springframework.stereotype.Component;
 
 @Component
