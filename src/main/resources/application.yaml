@@ -1,9 +1,3 @@
 spring:
   application:
     name: private-party-spring-web
-
-#  datasource:
-#    url: jdbc:postgresql://localhost:5432/party
-#    username: guard
-#    password: 654321
-#    driver: org.postgresql.Driver
