@@ -20,18 +20,6 @@ public class GuestRepository {
     private static final String FIND_ALL_QUERY = "SELECT * FROM GUEST";
     private static final String GUEST_NAME_VIEW_QUERY = "SELECT * FROM guest_name";
 
-
-    /**
-     * Сохраняет нового гостя в базу данных.
-     * Возвращает сохраненного гостя с заполненным идентификатором и другими полями.
-     *
-     * @param guestDto   объект {@link GuestDto}, содержащий данные гостя для сохранения.
-     * @param dbUser     имя пользователя для подключения к базе данных.
-     * @param dbPassword пароль для подключения к базе данных.
-     * @return объект {@link Guest}, представляющий сохраненного гостя, с заполненными полями.
-     * @throws ClassNotFoundException если класс драйвера PostgreSQL JDBC не найден.
-     * @throws NoAccessException      если возникает ошибка доступа к базе данных.
-     */
     public Guest save(GuestDto guestDto, String dbUser, String dbPassword) throws ClassNotFoundException {
         Class.forName("org.postgresql.Driver");
         try (Connection connection = getConnection(DB_URL, dbUser, dbPassword)) {
@@ -60,21 +48,6 @@ public class GuestRepository {
         }
     }
 
-    /**
-     * Извлекает список всех гостей из базы данных.
-     * Первоначальный запрос: выборка по таблице.
-     * Альтернативный запрос: выборка по view.
-     * <p>
-     * Если первоначальный запрос не удается выполнить из-за ошибки доступа, выполняется альтернативный запрос.
-     * </p>
-     *
-     * @param dbUser     имя пользователя для подключения к базе данных.
-     * @param dbPassword пароль для подключения к базе данных.
-     * @return список объектов {@link Guest}, полученных из базы данных.
-     * @throws ClassNotFoundException если класс драйвера PostgreSQL JDBC не найден.
-     * @throws NoAccessException      если возникает ошибка доступа к базе данных при выполнении как первоначального,
-     *                                так и альтернативного запросов.
-     */
     public List<Guest> findAll(String dbUser, String dbPassword) throws ClassNotFoundException {
         List<Guest> guests = new ArrayList<>();
         Class.forName("org.postgresql.Driver");
