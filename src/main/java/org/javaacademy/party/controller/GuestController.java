@@ -13,10 +13,11 @@ public class GuestController {
     private final GuestService guestService;
 
     @PostMapping("/add-guest")
-    public ResponseEntity<GuestDto> addGuest(@RequestHeader("db-user") String dbUser,
+    public ResponseEntity<?> addGuest(@RequestHeader("db-user") String dbUser,
                                              @RequestHeader("db-password") String dbPassword,
                                              @RequestBody GuestDto guestDto) {
-        return ResponseEntity.ok(guestService.save(guestDto, dbUser, dbPassword));
+        guestService.save(guestDto, dbUser, dbPassword);
+        return ResponseEntity.status(202).build();
     }
 
     @GetMapping("/all-guest")
